@@ -1,6 +1,6 @@
 ﻿namespace FootApi.Domain.Entities
 {
-    internal class Player
+    public class Player
     {
         public int Id { get; set; }
         public string FirstName { get; set; } = default!;
@@ -11,6 +11,7 @@
         public float Height { get; set; }
         public float Weight { get; set; }
 
+        public int? CurrentClubId { get; set; }
         public Club? CurrentClub { get; set; } 
     }
 }
