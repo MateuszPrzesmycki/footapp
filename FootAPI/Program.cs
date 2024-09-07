@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using FootApi.Infrastructure.Extensions;
 using FootApi.Infrastructure.Seeders;
+using FootApi.Application.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddApplication();
 
 var app = builder.Build();
 
