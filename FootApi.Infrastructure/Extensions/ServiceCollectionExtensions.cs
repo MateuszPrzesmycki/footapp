@@ -1,4 +1,5 @@
 ﻿using FootApi.Infrastructure.DbConextMain;
+using FootApi.Infrastructure.Seeders;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +12,7 @@ namespace FootApi.Infrastructure.Extensions
         {
             services.AddDbContext<FootApiDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("FootConnectionString")));
+            services.AddScoped<IClubSeeder, ClubSeeder>();
         }
     }
 }
