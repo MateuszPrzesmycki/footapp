@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FootApi.Domain.Entities
 {
-    internal class Club
+    public class Club
     {
         public int Id { get; set; }
         public string ClubName { get; set; } = default!;
