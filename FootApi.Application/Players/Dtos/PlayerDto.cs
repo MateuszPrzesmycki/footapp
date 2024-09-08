@@ -1,6 +1,8 @@
-﻿namespace FootApi.Domain.Entities
+﻿using FootApi.Application.Clubs.Dtos;
+
+namespace FootApi.Application.Players.Dtos
 {
-    public class Player
+    public class PlayerDto
     {
         public int Id { get; set; }
         public string FirstName { get; set; } = default!;
@@ -10,8 +12,7 @@
         public string Position { get; set; } = default!;
         public float Height { get; set; }
         public float Weight { get; set; }
-        public DateTime WhenCreated { get; set; }
         public int? CurrentClubId { get; set; }
-        public Club? CurrentClub { get; set; } 
+        public ClubDto? CurrentClub { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace FootApi.Infrastructure.Repositories
 
         public async Task<Club?> GetClubAsync(int id)
         {
-            return await dbContext.Clubs.FirstOrDefaultAsync(c => c.Id == id);
+            return await dbContext.Clubs.Include(c => c.Players).FirstOrDefaultAsync(c => c.Id == id);
         }
 
     }

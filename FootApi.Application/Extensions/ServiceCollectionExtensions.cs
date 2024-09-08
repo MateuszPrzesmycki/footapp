@@ -9,6 +9,7 @@ namespace FootApi.Application.Extensions
         public static void AddApplication(this IServiceCollection services)
         {
             services.AddScoped<IClubsService, ClubsService>();
+            services.AddAutoMapper(typeof(ServiceCollectionExtensions).Assembly);
         }
     }
 }

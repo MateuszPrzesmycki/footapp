@@ -1,21 +1,25 @@
-﻿using FootApi.Domain.Entities;
+﻿using AutoMapper;
+using FootApi.Application.Clubs.Dtos;
 using FootApi.Domain.Repositories;
 using Microsoft.Extensions.Logging;
 
 namespace FootApi.Application.Clubs
 {
-    internal class ClubsService(IClubsRepository clubsRepository, ILogger<ClubsService> logger) : IClubsService
+    internal class ClubsService(IClubsRepository clubsRepository, ILogger<ClubsService> logger, IMapper mapper) : IClubsService
     {
-        public async Task<Club> GetClub(int id)
+        public async Task<ClubDto?> GetClub(int id)
         {
             logger.LogInformation("Get club");
-            return await clubsRepository.GetClubAsync(id);
+            var club = await clubsRepository.GetClubAsync(id);
+            if (club == null) return null;
+            else return mapper.Map<ClubDto>(club);
         }
 
-        public async Task<IEnumerable<Club>> GetClubs()
+        public async Task<IEnumerable<ClubDto>> GetClubs()
         {
             logger.LogInformation("Get all clubs");
-            return await clubsRepository.GetClubsAsync();
+            var clubs = await clubsRepository.GetClubsAsync();
+            return mapper.Map<IEnumerable<ClubDto>>(clubs);
         }
     }
 }

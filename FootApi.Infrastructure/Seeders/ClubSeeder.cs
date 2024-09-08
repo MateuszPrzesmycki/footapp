@@ -24,6 +24,7 @@ namespace FootApi.Infrastructure.Seeders
                             StadiumName = "Camp Nou",
                             Country = "Spain",
                             FoundedYear = 1900,
+                            WhenCreated = DateTime.Now,
                             Players = new List<Player>()
                             {
                                 new Player()
@@ -34,7 +35,8 @@ namespace FootApi.Infrastructure.Seeders
                                     Height = 180,
                                     Weight = 70,
                                     Nationality = "Spain",
-                                    Position = "ST"
+                                    Position = "ST",
+                                    WhenCreated = DateTime.Now
                                 }
                             }
                         }

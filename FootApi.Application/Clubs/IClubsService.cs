@@ -1,10 +1,10 @@
-﻿using FootApi.Domain.Entities;
+﻿using FootApi.Application.Clubs.Dtos;
 
 namespace FootApi.Application.Clubs
 {
     public interface IClubsService
     {
-        Task<IEnumerable<Club>> GetClubs();
-        Task<Club?> GetClub(int id);
+        Task<IEnumerable<ClubDto>> GetClubs();
+        Task<ClubDto?> GetClub(int id);
     }
 }
