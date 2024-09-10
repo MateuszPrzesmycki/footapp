@@ -11,5 +11,6 @@ namespace FootApi.Domain.Repositories
     {
         Task<IEnumerable<Club>> GetClubsAsync();
         Task<Club?> GetClubAsync(int id);
+        Task<int> CreateClubAsync(Club club);
     }
 }

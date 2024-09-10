@@ -12,6 +12,7 @@ namespace FootApi.Application.Clubs.Dtos
     {
         public ClubsProfile()
         {
+            CreateMap<ClubCreateDto, Club>();
             CreateMap<Club, ClubDto>();
         }
     }

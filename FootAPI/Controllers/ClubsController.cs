@@ -1,4 +1,5 @@
 ﻿using FootApi.Application.Clubs;
+using FootApi.Application.Clubs.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,6 +21,12 @@ namespace FootAPI.Controllers
             var club = await clubsService.GetClub(id);
             if (club == null) return NotFound();
             return Ok(club);
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateClub([FromBody] ClubCreateDto club)
+        {
+            int id = await clubsService.Create(club);
+            return CreatedAtAction(nameof(GetClubs), new { id }, null);
         }
     }
 }

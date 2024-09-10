@@ -6,5 +6,6 @@ namespace FootApi.Application.Clubs
     {
         Task<IEnumerable<ClubDto>> GetClubs();
         Task<ClubDto?> GetClub(int id);
+        Task<int> Create(ClubCreateDto dto);
     }
 }

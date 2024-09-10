@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FootApi.Application.Clubs.Dtos;
+using FootApi.Domain.Entities;
 using FootApi.Domain.Repositories;
 using Microsoft.Extensions.Logging;
 
@@ -7,6 +8,13 @@ namespace FootApi.Application.Clubs
 {
     internal class ClubsService(IClubsRepository clubsRepository, ILogger<ClubsService> logger, IMapper mapper) : IClubsService
     {
+        public async Task<int> Create(ClubCreateDto dto)
+        {
+            logger.LogInformation("Create new club");
+            var obj = mapper.Map<Club>(dto);
+            return await clubsRepository.CreateClubAsync(obj);
+        }
+
         public async Task<ClubDto?> GetClub(int id)
         {
             logger.LogInformation("Get club");

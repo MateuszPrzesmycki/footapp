@@ -14,5 +14,11 @@ namespace FootApi.Infrastructure.Repositories
             return await dbContext.Clubs.Include(c => c.Players).FirstOrDefaultAsync(c => c.Id == id);
         }
 
+        public async Task<int> CreateClubAsync(Club club)
+        {
+            dbContext.Clubs.Add(club);
+            await dbContext.SaveChangesAsync();
+            return club.Id;
+        }
     }
 }
