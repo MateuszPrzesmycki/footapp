@@ -20,5 +20,16 @@ namespace FootApi.Infrastructure.Repositories
             await dbContext.SaveChangesAsync();
             return club.Id;
         }
+
+        public async Task DeleteClubAsync(Club club)
+        {
+            dbContext.Clubs.Remove(club);
+            await dbContext.SaveChangesAsync();
+        }
+        public async Task PatchClubAsync(Club club)
+        {
+            dbContext.Clubs.Update(club);
+            await dbContext.SaveChangesAsync();
+        }
     }
 }

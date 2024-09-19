@@ -1,10 +1,4 @@
 ﻿using FootApi.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace FootApi.Domain.Repositories
 {
     public interface IClubsRepository
@@ -12,5 +6,7 @@ namespace FootApi.Domain.Repositories
         Task<IEnumerable<Club>> GetClubsAsync();
         Task<Club?> GetClubAsync(int id);
         Task<int> CreateClubAsync(Club club);
+        Task DeleteClubAsync(Club club);
+        Task PatchClubAsync(Club club);
     }
 }

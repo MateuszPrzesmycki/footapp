@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using MediatR;
 
-namespace FootApi.Application.Clubs.Dtos
+namespace FootApi.Application.Clubs.Commands.CreateClub
 {
-    public class ClubCreateDto
+    public class CreateClubCommand : IRequest<int>
     {
         public string ClubName { get; set; } = default!;
         public string Country { get; set; } = default!;

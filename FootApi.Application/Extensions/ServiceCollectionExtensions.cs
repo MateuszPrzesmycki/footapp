@@ -10,9 +10,10 @@ namespace FootApi.Application.Extensions
     {
         public static void AddApplication(this IServiceCollection services)
         {
-            services.AddScoped<IClubsService, ClubsService>();
-            services.AddAutoMapper(typeof(ServiceCollectionExtensions).Assembly);
-            services.AddValidatorsFromAssembly(typeof(ServiceCollectionExtensions).Assembly).AddFluentValidationAutoValidation();
+            var appAssembly = typeof(ServiceCollectionExtensions).Assembly;
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(appAssembly));
+            services.AddAutoMapper(appAssembly);
+            services.AddValidatorsFromAssembly(appAssembly).AddFluentValidationAutoValidation();
         }
     }
 }

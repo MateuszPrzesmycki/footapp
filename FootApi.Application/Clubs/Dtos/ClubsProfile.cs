@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FootApi.Application.Clubs.Commands.CreateClub;
 using FootApi.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace FootApi.Application.Clubs.Dtos
     {
         public ClubsProfile()
         {
-            CreateMap<ClubCreateDto, Club>();
+            CreateMap<CreateClubCommand, Club>();
             CreateMap<Club, ClubDto>();
         }
     }
